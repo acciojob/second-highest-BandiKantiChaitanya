@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
@@ -9,33 +8,35 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
-			if(arr.length>0&& arr.length>1){
-			     let sortedArr = [...new Set(arr)].sort((a, b) => b - a);
-               if(sortedArr.length>1){
-                   console.log(sortedArr[1])
-               }else{
-                   console.log('-Infinity')
-               }
-			}else{
-			    console.log('-Infinity')
+			// Check if the array has at least 2 elements
+			if (arr.length > 1) {
+				// Convert strings to numbers, remove duplicates, and sort in descending order
+				let sortedArr = [...new Set(arr.map(Number))].sort((a, b) => b - a);
+
+				// If there is a second largest distinct element, return it
+				if (sortedArr.length > 1) {
+					return sortedArr[1];
+				} else {
+					return '-Infinity'; // No second distinct largest element
+				}
+			} else {
+				return '-Infinity'; // Not enough elements for a second largest
 			}
-		
 		}
 
 		function Main() {
 			var n = prompt("Enter the number of elements");
 			var arr = [];
 			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
+				// Convert prompt input into a number
+				arr[i] = prompt("Enter element " + (i + 1));
 			}
-			alert(secondHighest(arr));
+			// Call secondHighest and show the result in alert
+			alert("Second highest element is: " + secondHighest(arr));
 		}
+
 		Main();
 	</script>
-
-    <script type="text/javascript" src="./script.js">
-</script>
 
 </body>
 
