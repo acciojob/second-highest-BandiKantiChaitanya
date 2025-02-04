@@ -10,19 +10,19 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-			 if (arr.length < 2) {
+			  if (arr.length < 2) {
         return '-Infinity'; // Not enough elements for a second largest
     }
 
     // Convert input to numbers and remove duplicates
-    let sortedArr = [...new Set(arr.map(Number))].sort((a, b) => b - a);
+    let sortedArr = [...new Set(arr)].sort((a, b) => b - a);
 
     // If there's a second largest distinct element, return it
     if (sortedArr.length > 1) {
         return sortedArr[1]; // Second largest element
     } else {
         return '-Infinity'; // No second distinct largest element
-    }	 
+    } 	 
 		}
 
 		function Main() {
